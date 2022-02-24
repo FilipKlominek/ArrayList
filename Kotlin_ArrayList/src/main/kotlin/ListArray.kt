@@ -1,5 +1,5 @@
-class ListArray(
-    var content: Array<Int>
+class ListArray<T>(
+    var content: Array<T>
 ) {
     fun size(): Int {
         return content.size
@@ -9,35 +9,37 @@ class ListArray(
         return content.isEmpty()
     }
 
-    fun indexOf(int: Int): Int {
-        return if (!content.contains(int)) -1
-        else content.indexOf(int)
+    fun indexOf(item: T): Int {
+        return if (!content.contains(item)) -1
+        else content.indexOf(item)
     }
 
-    fun toArray(): Array<Int> {
+    fun toArray(): Array<T> {
         return content
     }
 
-    fun get(index: Int): Int {
+    fun get(index: Int): T {
         return content[index]
     }
 
 
-    fun add(int: Int) {
+    fun add(item: T) {
         val list = content.toMutableList()
-        list.add(int)
+        list.add(item)
+
         content = list.toTypedArray()
     }
 
-    fun set(index:Int, int: Int) {
-        content[index] = int
+    fun set(index: Int, item: T) {
+        content[index] = item
     }
 
-    fun contains(int: Int): Boolean {
-        return content.contains(int)
+    fun contains(item: T): Boolean {
+        return content.contains(item)
     }
-    fun lastIndexOf(int: Int): Int {
-        return if (!content.contains(int)) -1
-        else content.lastIndexOf(int)
+
+    fun lastIndexOf(item: T): Int {
+        return if (!content.contains(item)) -1
+        else content.lastIndexOf(item)
     }
 }
